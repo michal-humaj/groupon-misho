@@ -26,7 +26,7 @@ export default function DealInfo({
 }: DealInfoProps) {
   return (
     <div className="bg-white px-4 py-5">
-      <h1 className="text-[22px] font-bold mb-3 leading-[1.3]">{title}</h1>
+      <h1 className="text-[21px] font-bold mb-3 leading-[1.3]">{title}</h1>
       
       <div className="flex items-start gap-2 mb-2.5">
         <svg className="w-[18px] h-[18px] text-gray-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -42,12 +42,10 @@ export default function DealInfo({
         </a>
       </div>
       
-      <div className="flex items-center gap-2 mb-5">
-        <div className="flex items-center gap-1">
-          <Star className="w-[18px] h-[18px] fill-orange-400 text-orange-400" />
-          <span className="font-bold text-[15px]">{rating}</span>
-        </div>
-        <a href="#reviews" className="text-[13px] text-gray-600 underline">
+      <div className="flex items-center gap-1.5 mb-5">
+        <Star className="w-5 h-5 fill-orange-400 text-orange-400" />
+        <span className="font-bold text-[16px]">{rating}</span>
+        <a href="#reviews" className="text-[14px] text-gray-600 underline ml-0.5">
           ({reviewCount.toLocaleString()} reviews)
         </a>
       </div>

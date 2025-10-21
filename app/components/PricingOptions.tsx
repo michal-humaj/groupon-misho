@@ -19,12 +19,12 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
   return (
     <div className="bg-white mt-2">
       {/* Gift Option and Select Option Header */}
-      <div className="px-4 py-4">
+      <div className="px-4 py-3.5 bg-gray-50 border-b">
         <div className="flex items-center justify-between">
-          <h2 className="text-[17px] font-bold">Select Option:</h2>
+          <h2 className="text-[16px] font-bold">Select Option:</h2>
           <div className="flex items-center gap-2">
             <input type="checkbox" id="gift" className="w-[18px] h-[18px] border-2 border-gray-400 rounded" />
-            <label htmlFor="gift" className="text-[13px] font-medium">Buy as a gift</label>
+            <label htmlFor="gift" className="text-[13px] font-normal">Buy as a gift</label>
             <button className="p-0.5">
               <Info className="w-[17px] h-[17px] text-gray-400" />
             </button>
@@ -33,19 +33,21 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
       </div>
 
       {/* Options List */}
-      <div className="border-t">
+      <div>
         {options.map((option) => (
           <div
             key={option.id}
-            className={`p-4 cursor-pointer transition-all border-b last:border-b-0 ${
-              selectedOption === option.id ? 'bg-blue-50 border-2 border-blue-500 rounded-lg mx-3 my-2' : ''
+            className={`p-4 cursor-pointer transition-all ${
+              selectedOption === option.id 
+                ? 'bg-blue-50 border border-blue-400 rounded-lg mx-3 my-2' 
+                : 'border-b border-gray-100 last:border-b-0'
             }`}
             onClick={() => setSelectedOption(option.id)}
           >
             <div className="flex items-start gap-3">
               {/* Radio Button */}
-              <div className="mt-1">
-                <div className={`w-5 h-5 rounded-full border-[2px] flex items-center justify-center ${
+              <div className="mt-0.5">
+                <div className={`w-5 h-5 rounded-full border-[2.5px] flex items-center justify-center ${
                   selectedOption === option.id ? 'border-blue-500' : 'border-gray-400'
                 }`}>
                   {selectedOption === option.id && (
@@ -56,16 +58,16 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
 
               {/* Option Content */}
               <div className="flex-1">
-                <div className="flex items-start justify-between mb-2.5">
-                  <h3 className="font-semibold text-[15px] leading-[1.3] pr-2">{option.title}</h3>
+                <div className="flex items-start justify-between mb-2">
+                  <h3 className="font-bold text-[15px] leading-[1.3] pr-2">{option.title}</h3>
                   <Gift className="w-5 h-5 text-gray-400 flex-shrink-0" />
                 </div>
 
                 {/* Pricing */}
-                <div className="flex items-baseline gap-2 mb-2.5">
-                  <span className="text-gray-400 line-through text-[15px]">${option.originalPrice}</span>
-                  <span className="text-groupon-green font-bold text-[26px] leading-none">${option.discountedPrice}</span>
-                  <span className="text-groupon-green font-semibold text-[14px]">{option.discountPercent}%</span>
+                <div className="flex items-baseline gap-1.5 mb-2">
+                  <span className="text-gray-400 line-through text-[14px]">${option.originalPrice}</span>
+                  <span className="text-groupon-green font-bold text-[28px] leading-none">${option.discountedPrice}</span>
+                  <span className="text-groupon-green font-bold text-[13px]">{option.discountPercent}%</span>
                 </div>
 
                 {/* Promo Price */}
