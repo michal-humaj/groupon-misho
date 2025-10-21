@@ -33,14 +33,14 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
       </div>
 
       {/* Options List */}
-      <div>
+      <div className="bg-gray-50 px-3 py-2">
         {options.map((option) => (
           <div
             key={option.id}
-            className={`p-3.5 cursor-pointer transition-all ${
+            className={`p-3.5 cursor-pointer transition-all bg-white rounded-lg mb-2 last:mb-0 ${
               selectedOption === option.id 
-                ? 'bg-blue-50/60 border border-blue-300 rounded-lg mx-3 my-2' 
-                : 'border-b border-gray-100 last:border-b-0'
+                ? 'border border-blue-300 shadow-sm' 
+                : 'border border-transparent'
             }`}
             onClick={() => setSelectedOption(option.id)}
           >
