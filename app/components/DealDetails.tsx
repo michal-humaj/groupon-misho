@@ -76,7 +76,7 @@ export default function DealDetails({
       <div className="px-4 py-6 border-b">
         <h2 className="text-xl font-bold mb-4">The Best Way to Visit Chicago in the Spring, Summer & Fall</h2>
         <p className="text-gray-800 leading-relaxed mb-4">
-          Chicago is famous for its architecture, and the best way to see it is on a cruise down the Chicago River. Each architecture river tour is narrated by a professional guide who leads passengers down the Chicago River to discover the city's most renowned landmarks. In addition to historical insight into well-known structures such as the Civic Opera House, Trump Tower & the Merchandise Mart, passengers will also get a chance to learn about current and upcoming developments. The Architecture River Cruise navigates the three primary branches of the river including the main branch to Navy Pier, the north branch to Goose Island, and the south branch to Chinatown.
+          Chicago is famous for its architecture, and the best way to see it is on a cruise down the Chicago River. Each architecture river tour is narrated by a professional guide who leads passengers down the Chicago River to discover the city&apos;s most renowned landmarks. In addition to historical insight into well-known structures such as the Civic Opera House, Trump Tower & the Merchandise Mart, passengers will also get a chance to learn about current and upcoming developments. The Architecture River Cruise navigates the three primary branches of the river including the main branch to Navy Pier, the north branch to Goose Island, and the south branch to Chinatown.
         </p>
 
         <ul className="space-y-3">
@@ -120,10 +120,10 @@ export default function DealDetails({
         <h2 className="text-xl font-bold mb-4">Reviews from Happy Participants</h2>
         <ul className="space-y-4">
           <li className="italic text-gray-700 leading-relaxed">
-            "If you are visiting Chicago and want something awesome to do, Don't miss out on this great attraction. Great thing about the boat we were on was air conditioned at the bottom. Our tour guide was very knowledgeable and gave us a lot of insight on the different architecture in Chicago that we seen. This is a 5-STAR a must-go!"
+            &ldquo;If you are visiting Chicago and want something awesome to do, Don&apos;t miss out on this great attraction. Great thing about the boat we were on was air conditioned at the bottom. Our tour guide was very knowledgeable and gave us a lot of insight on the different architecture in Chicago that we seen. This is a 5-STAR a must-go!&rdquo;
           </li>
           <li className="italic text-gray-700 leading-relaxed">
-            "The best boat tour ever! I and my friend were so happy that we did it. Definitely recommended a lot while enjoying the amazing views. I know there are tons of seemingly the same kind of tour out there though, but this is the one that you'd want to join as they offer a further trip to the north and provide rich history and information. It's 10 out of 10. Highly recommended!"
+            &ldquo;The best boat tour ever! I and my friend were so happy that we did it. Definitely recommended a lot while enjoying the amazing views. I know there are tons of seemingly the same kind of tour out there though, but this is the one that you&apos;d want to join as they offer a further trip to the north and provide rich history and information. It&apos;s 10 out of 10. Highly recommended!&rdquo;
           </li>
         </ul>
       </div>
