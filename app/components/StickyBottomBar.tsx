@@ -37,7 +37,7 @@ export default function StickyBottomBar() {
           </div>
         </div>
         
-        <button className="bg-groupon-green hover:bg-groupon-green-dark text-white font-bold px-6 py-2.5 rounded-lg transition-colors text-[14px] shadow-sm">
+        <button className="bg-groupon-green hover:bg-groupon-green-dark text-white font-bold px-6 py-2.5 rounded-full transition-colors text-[14px] shadow-sm">
           Choose Option
         </button>
       </div>

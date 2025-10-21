@@ -37,14 +37,11 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
         {options.map((option) => (
           <div
             key={option.id}
-            className={`p-4 cursor-pointer transition-colors border-b last:border-b-0 relative ${
-              selectedOption === option.id ? 'bg-blue-50' : ''
+            className={`p-4 cursor-pointer transition-all border-b last:border-b-0 ${
+              selectedOption === option.id ? 'bg-blue-50 border-2 border-blue-500 rounded-lg mx-3 my-2' : ''
             }`}
             onClick={() => setSelectedOption(option.id)}
           >
-            {selectedOption === option.id && (
-              <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500" />
-            )}
             <div className="flex items-start gap-3">
               {/* Radio Button */}
               <div className="mt-1">
@@ -73,13 +70,13 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
 
                 {/* Promo Price */}
                 {selectedOption === option.id && (
-                  <div className="border-2 border-dashed border-purple-300 rounded-md p-2 bg-white mb-2.5">
+                  <div className="border-2 border-dashed border-purple-400 rounded-md p-2 bg-white mb-2.5">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex items-baseline gap-1 flex-wrap">
-                        <span className="text-purple-600 font-bold text-[17px]">${option.promoPrice}</span>
-                        <span className="text-[11px] text-gray-700">with code <span className="font-bold text-gray-900">{option.promoCode}</span></span>
+                        <span className="text-purple-600 font-bold text-[16px]">${option.promoPrice}</span>
+                        <span className="text-[11px] text-gray-800">with code <span className="font-bold text-black">{option.promoCode}</span></span>
                       </div>
-                      <button className="text-purple-600 font-bold text-[12px] underline whitespace-nowrap">Apply</button>
+                      <button className="text-purple-600 font-bold text-[13px] underline whitespace-nowrap">Apply</button>
                     </div>
                   </div>
                 )}
@@ -98,9 +95,9 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
 
                 {/* Quantity Selector */}
                 {selectedOption === option.id && (
-                  <div className="flex items-center gap-3 mb-2">
+                  <div className="flex items-center gap-2.5 mb-2">
                     <button
-                      className="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-xl font-normal text-gray-700 hover:bg-gray-50 active:bg-gray-100"
+                      className="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-xl font-light text-gray-700 hover:bg-gray-50 active:bg-gray-100"
                       onClick={(e) => {
                         e.stopPropagation();
                         if (quantities[option.id] > 1) {
@@ -118,7 +115,7 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
                           e.stopPropagation();
                           setQuantities({ ...quantities, [option.id]: parseInt(e.target.value) });
                         }}
-                        className="w-[72px] h-10 border border-gray-300 rounded-md px-2.5 pr-7 appearance-none text-center font-normal text-[16px] bg-white text-gray-900"
+                        className="w-[70px] h-10 border border-gray-300 rounded-md px-2 pr-7 appearance-none text-center font-normal text-[15px] bg-white text-gray-900"
                       >
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
                           <option key={num} value={num}>{num}</option>
@@ -130,7 +127,7 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
                     </div>
                     
                     <button
-                      className="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-xl font-normal text-gray-700 hover:bg-gray-50 active:bg-gray-100"
+                      className="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-xl font-light text-gray-700 hover:bg-gray-50 active:bg-gray-100"
                       onClick={(e) => {
                         e.stopPropagation();
                         setQuantities({ ...quantities, [option.id]: quantities[option.id] + 1 });
@@ -151,7 +148,7 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
 
       {/* Buy Now Button */}
       <div className="p-4 border-t">
-        <button className="w-full bg-groupon-green hover:bg-groupon-green-dark text-white font-bold py-3.5 rounded-lg text-[16px] transition-colors shadow-sm">
+        <button className="w-full bg-groupon-green hover:bg-groupon-green-dark text-white font-bold py-3.5 rounded-full text-[16px] transition-colors shadow-sm">
           Buy now
         </button>
       </div>

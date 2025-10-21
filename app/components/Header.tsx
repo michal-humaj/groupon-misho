@@ -7,15 +7,15 @@ export default function Header() {
   return (
     <>
       {/* Main Header */}
-      <header className="bg-white sticky top-[52px] z-40 border-b border-gray-200">
+      <header className="bg-white sticky top-[38px] z-40 border-b border-gray-200">
         <div className="flex items-center justify-between px-4 py-2.5">
           <button className="p-2 -ml-2">
             <Menu className="w-6 h-6" />
           </button>
           
           <div className="flex-1 flex justify-center">
-            <svg className="h-8" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <text x="0" y="22" fill="#53a318" fontSize="24" fontWeight="bold" fontFamily="Arial, sans-serif">
+            <svg className="h-7" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <text x="0" y="22" fill="#53a318" fontSize="24" fontWeight="900" fontFamily="Arial, sans-serif">
                 GROUPON
               </text>
             </svg>

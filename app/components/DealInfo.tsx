@@ -53,14 +53,14 @@ export default function DealInfo({
       </div>
       
       {/* Promo Banner */}
-      <div className="border-2 border-dashed border-purple-300 rounded-lg p-4 bg-purple-50">
+      <div className="border-2 border-dashed border-purple-400 rounded-lg p-3.5 bg-purple-50">
         <div className="text-center">
-          <div className="text-[17px] font-bold mb-1">Extra ${promoDiscount.toFixed(2)} off</div>
-          <div className="text-[13px] mb-1">
+          <div className="text-[16px] font-bold mb-0.5">Extra ${promoDiscount.toFixed(2)} off</div>
+          <div className="text-[12px] mb-1.5">
             Promo <span className="font-bold text-purple-600">{promoCode}</span> ends in:{' '}
             <span className="font-semibold">{promoEndTime}</span>
           </div>
-          <p className="text-[11px] text-gray-600 mt-2">
+          <p className="text-[11px] text-purple-600">
             Groupon reserves the right to end the promo at any time
           </p>
         </div>

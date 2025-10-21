@@ -16,18 +16,18 @@ export default function PromoBar() {
   }, []);
 
   return (
-    <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700 text-white px-4 py-2 flex items-center justify-between text-[13px] sticky top-0 z-50">
-      <div className="flex-1">
-        <span className="font-semibold">Spooky Sale is Here! Use code </span>
+    <div className="bg-gradient-to-r from-purple-700 via-purple-600 to-purple-700 text-white px-3 py-1.5 flex items-center justify-between text-[11px] sticky top-0 z-50">
+      <div className="flex-1 leading-tight">
+        <span className="font-medium">Spooky Sale is Here! Use code </span>
         <span className="font-bold">HALLOWEEN</span>
-        <span className="font-semibold"> & save up to 75%</span>
+        <span className="font-medium"> & save up to 75%</span>
       </div>
-      <div className="flex items-center gap-3">
-        <div className="text-right">
-          <div className="text-xs opacity-90">Ends in</div>
-          <div className="font-semibold">{timeLeft}</div>
+      <div className="flex items-center gap-2">
+        <div className="text-right leading-tight">
+          <div className="text-[10px] opacity-90">Ends in</div>
+          <div className="font-semibold text-[11px]">{timeLeft}</div>
         </div>
-        <button className="bg-white text-purple-700 px-4 py-1.5 rounded-full font-semibold text-[13px] whitespace-nowrap">
+        <button className="bg-white text-purple-700 px-3 py-1 rounded-full font-bold text-[11px] whitespace-nowrap">
           Shop Now!
         </button>
       </div>
