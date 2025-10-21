@@ -39,7 +39,7 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
             key={option.id}
             className={`p-3.5 cursor-pointer transition-all rounded-lg mb-3 last:mb-0 shadow-sm ${
               selectedOption === option.id 
-                ? 'bg-cyan-50 border border-cyan-400' 
+                ? 'bg-sky-50 border-2 border-sky-400' 
                 : 'bg-white border border-gray-200'
             }`}
             onClick={() => setSelectedOption(option.id)}
