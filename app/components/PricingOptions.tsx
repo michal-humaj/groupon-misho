@@ -37,67 +37,70 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
         {options.map((option) => (
           <div
             key={option.id}
-            className={`p-4 cursor-pointer transition-colors border-b last:border-b-0 ${
-              selectedOption === option.id ? 'bg-blue-50 border-l-4 border-l-blue-500 -ml-px' : ''
+            className={`p-4 cursor-pointer transition-colors border-b last:border-b-0 relative ${
+              selectedOption === option.id ? 'bg-blue-50' : ''
             }`}
             onClick={() => setSelectedOption(option.id)}
           >
+            {selectedOption === option.id && (
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500" />
+            )}
             <div className="flex items-start gap-3">
               {/* Radio Button */}
-              <div className="mt-0.5">
-                <div className={`w-[20px] h-[20px] rounded-full border-2 flex items-center justify-center ${
+              <div className="mt-1">
+                <div className={`w-5 h-5 rounded-full border-[2px] flex items-center justify-center ${
                   selectedOption === option.id ? 'border-blue-500' : 'border-gray-400'
                 }`}>
                   {selectedOption === option.id && (
-                    <div className="w-[11px] h-[11px] rounded-full bg-blue-500" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
                   )}
                 </div>
               </div>
 
               {/* Option Content */}
               <div className="flex-1">
-                <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-semibold text-[15px] leading-tight pr-2">{option.title}</h3>
-                  <Gift className="w-[20px] h-[20px] text-gray-400 flex-shrink-0" />
+                <div className="flex items-start justify-between mb-2.5">
+                  <h3 className="font-semibold text-[15px] leading-[1.3] pr-2">{option.title}</h3>
+                  <Gift className="w-5 h-5 text-gray-400 flex-shrink-0" />
                 </div>
 
                 {/* Pricing */}
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-gray-500 line-through text-[15px]">${option.originalPrice}</span>
-                  <span className="text-groupon-green font-bold text-[24px]">${option.discountedPrice}</span>
-                  <span className="text-groupon-green font-semibold text-[15px]">{option.discountPercent}%</span>
+                <div className="flex items-baseline gap-2 mb-2.5">
+                  <span className="text-gray-400 line-through text-[15px]">${option.originalPrice}</span>
+                  <span className="text-groupon-green font-bold text-[26px] leading-none">${option.discountedPrice}</span>
+                  <span className="text-groupon-green font-semibold text-[14px]">{option.discountPercent}%</span>
                 </div>
 
                 {/* Promo Price */}
                 {selectedOption === option.id && (
-                  <div className="border-2 border-dashed border-purple-300 rounded-md p-2.5 bg-white mb-3">
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-baseline gap-1.5">
-                        <span className="text-purple-600 font-bold text-[18px]">${option.promoPrice}</span>
-                        <span className="text-[12px]">with code <span className="font-bold">{option.promoCode}</span></span>
+                  <div className="border-2 border-dashed border-purple-300 rounded-md p-2 bg-white mb-2.5">
+                    <div className="flex items-center justify-between gap-2">
+                      <div className="flex items-baseline gap-1 flex-wrap">
+                        <span className="text-purple-600 font-bold text-[17px]">${option.promoPrice}</span>
+                        <span className="text-[11px] text-gray-700">with code <span className="font-bold text-gray-900">{option.promoCode}</span></span>
                       </div>
-                      <button className="text-purple-600 font-bold text-[13px] underline">Apply</button>
+                      <button className="text-purple-600 font-bold text-[12px] underline whitespace-nowrap">Apply</button>
                     </div>
                   </div>
                 )}
 
                 {/* Klarna Payment Option */}
                 {option.klarnaPayments && selectedOption === option.id && (
-                  <div className="bg-pink-50 border border-pink-200 rounded-md p-2.5 mb-3">
-                    <div className="text-[12px]">
+                  <div className="bg-pink-50 border border-pink-200 rounded-md p-2 mb-2.5">
+                    <div className="text-[11px] text-gray-800">
                       <span className="font-semibold">4 interest-free payments of ${option.klarnaPayments.amount}</span>
                       {' '}with{' '}
                       <span className="font-bold">Klarna</span>
-                      <a href="#" className="ml-1 underline">Learn more</a>
+                      <a href="#" className="ml-1 underline text-gray-700">Learn more</a>
                     </div>
                   </div>
                 )}
 
                 {/* Quantity Selector */}
                 {selectedOption === option.id && (
-                  <div className="flex items-center gap-2.5 mb-2.5">
+                  <div className="flex items-center gap-3 mb-2">
                     <button
-                      className="w-9 h-9 rounded-full border-2 border-gray-300 flex items-center justify-center text-lg font-medium text-gray-600 hover:bg-gray-50"
+                      className="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-xl font-normal text-gray-700 hover:bg-gray-50 active:bg-gray-100"
                       onClick={(e) => {
                         e.stopPropagation();
                         if (quantities[option.id] > 1) {
@@ -115,19 +118,19 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
                           e.stopPropagation();
                           setQuantities({ ...quantities, [option.id]: parseInt(e.target.value) });
                         }}
-                        className="w-16 h-9 border-2 border-gray-300 rounded-md px-2 appearance-none text-center font-medium text-[15px] bg-white"
+                        className="w-[72px] h-10 border border-gray-300 rounded-md px-2.5 pr-7 appearance-none text-center font-normal text-[16px] bg-white text-gray-900"
                       >
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(num => (
                           <option key={num} value={num}>{num}</option>
                         ))}
                       </select>
-                      <svg className="w-3 h-3 absolute right-1.5 top-1/2 -translate-y-1/2 pointer-events-none text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-3.5 h-3.5 absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
                     </div>
                     
                     <button
-                      className="w-9 h-9 rounded-full border-2 border-gray-300 flex items-center justify-center text-lg font-medium text-gray-600 hover:bg-gray-50"
+                      className="w-10 h-10 rounded-full bg-white border border-gray-300 flex items-center justify-center text-xl font-normal text-gray-700 hover:bg-gray-50 active:bg-gray-100"
                       onClick={(e) => {
                         e.stopPropagation();
                         setQuantities({ ...quantities, [option.id]: quantities[option.id] + 1 });
