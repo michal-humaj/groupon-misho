@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Groupon - Deals, Coupons & Discount',
+  title: 'Mock Groupon',
   description: 'Best deals on restaurants, shopping, travel and more',
   icons: {
     icon: '/icon',
