@@ -19,12 +19,12 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
   return (
     <div className="bg-white mt-2">
       {/* Gift Option and Select Option Header */}
-      <div className="px-4 py-3.5 bg-gray-50 border-b">
+      <div className="px-4 py-4 bg-white">
         <div className="flex items-center justify-between">
-          <h2 className="text-[16px] font-bold">Select Option:</h2>
+          <h2 className="text-[18px] font-bold">Select Option:</h2>
           <div className="flex items-center gap-2">
             <input type="checkbox" id="gift" className="w-[18px] h-[18px] border-2 border-gray-400 rounded" />
-            <label htmlFor="gift" className="text-[13px] font-normal">Buy as a gift</label>
+            <label htmlFor="gift" className="text-[14px] font-normal">Buy as a gift</label>
             <button className="p-0.5">
               <Info className="w-[17px] h-[17px] text-gray-400" />
             </button>
@@ -33,14 +33,14 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
       </div>
 
       {/* Options List */}
-      <div className="bg-gray-50 px-3 py-2">
+      <div className="bg-gray-100 px-3 py-3">
         {options.map((option) => (
           <div
             key={option.id}
-            className={`p-3.5 cursor-pointer transition-all bg-white rounded-lg mb-2 last:mb-0 ${
+            className={`p-3.5 cursor-pointer transition-all rounded-lg mb-3 last:mb-0 shadow-sm ${
               selectedOption === option.id 
-                ? 'border border-blue-300 shadow-sm' 
-                : 'border border-transparent'
+                ? 'bg-cyan-50 border border-cyan-400' 
+                : 'bg-white border border-gray-200'
             }`}
             onClick={() => setSelectedOption(option.id)}
           >
