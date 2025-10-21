@@ -37,21 +37,21 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
         {options.map((option) => (
           <div
             key={option.id}
-            className={`p-4 cursor-pointer transition-all ${
+            className={`p-3.5 cursor-pointer transition-all ${
               selectedOption === option.id 
-                ? 'bg-blue-50 border border-blue-400 rounded-lg mx-3 my-2' 
+                ? 'bg-blue-50/60 border border-blue-300 rounded-lg mx-3 my-2' 
                 : 'border-b border-gray-100 last:border-b-0'
             }`}
             onClick={() => setSelectedOption(option.id)}
           >
             <div className="flex items-start gap-3">
               {/* Radio Button */}
-              <div className="mt-0.5">
-                <div className={`w-5 h-5 rounded-full border-[2.5px] flex items-center justify-center ${
+              <div className="mt-1">
+                <div className={`w-[22px] h-[22px] rounded-full border-[2px] flex items-center justify-center ${
                   selectedOption === option.id ? 'border-blue-500' : 'border-gray-400'
                 }`}>
                   {selectedOption === option.id && (
-                    <div className="w-2.5 h-2.5 rounded-full bg-blue-500" />
+                    <div className="w-[11px] h-[11px] rounded-full bg-blue-500" />
                   )}
                 </div>
               </div>
@@ -59,26 +59,26 @@ export default function PricingOptions({ options }: PricingOptionsProps) {
               {/* Option Content */}
               <div className="flex-1">
                 <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-bold text-[15px] leading-[1.3] pr-2">{option.title}</h3>
-                  <Gift className="w-5 h-5 text-gray-400 flex-shrink-0" />
+                  <h3 className="font-semibold text-[15px] leading-[1.3] pr-2">{option.title}</h3>
+                  <Gift className="w-[22px] h-[22px] text-gray-400 flex-shrink-0" />
                 </div>
 
                 {/* Pricing */}
                 <div className="flex items-baseline gap-1.5 mb-2">
-                  <span className="text-gray-400 line-through text-[14px]">${option.originalPrice}</span>
-                  <span className="text-groupon-green font-bold text-[28px] leading-none">${option.discountedPrice}</span>
-                  <span className="text-groupon-green font-bold text-[13px]">{option.discountPercent}%</span>
+                  <span className="text-gray-400 line-through text-[15px]">${option.originalPrice}</span>
+                  <span className="text-groupon-green font-bold text-[30px] leading-none">${option.discountedPrice}</span>
+                  <span className="text-groupon-green font-semibold text-[14px]">-{option.discountPercent}%</span>
                 </div>
 
                 {/* Promo Price */}
                 {selectedOption === option.id && (
-                  <div className="border-2 border-dashed border-purple-400 rounded-md p-2 bg-white mb-2.5">
+                  <div className="border-2 border-dashed border-purple-400 rounded-md p-2.5 bg-white mb-2.5">
                     <div className="flex items-center justify-between gap-2">
-                      <div className="flex items-baseline gap-1 flex-wrap">
-                        <span className="text-purple-600 font-bold text-[16px]">${option.promoPrice}</span>
-                        <span className="text-[11px] text-gray-800">with code <span className="font-bold text-black">{option.promoCode}</span></span>
+                      <div className="flex items-baseline gap-1.5 flex-wrap">
+                        <span className="text-purple-600 font-bold text-[17px]">${option.promoPrice}</span>
+                        <span className="text-[12px] text-gray-700">with code <span className="font-bold text-black">{option.promoCode}</span></span>
                       </div>
-                      <button className="text-purple-600 font-bold text-[13px] underline whitespace-nowrap">Apply</button>
+                      <button className="text-blue-600 font-bold text-[14px] whitespace-nowrap">Apply</button>
                     </div>
                   </div>
                 )}
