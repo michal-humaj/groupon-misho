@@ -1,62 +1,31 @@
 import React from 'react';
-import PromoBar from './components/PromoBar';
-import Header from './components/Header';
-import DealImageCarousel from './components/DealImageCarousel';
-import DealInfo from './components/DealInfo';
-import PricingOptions from './components/PricingOptions';
-import Reviews from './components/Reviews';
-import DealDetails from './components/DealDetails';
-import LocationMap from './components/LocationMap';
-import CustomerPhotos from './components/CustomerPhotos';
-import Footer from './components/Footer';
-import StickyBottomBar from './components/StickyBottomBar';
-import { mockDeal } from './data/mockDeal';
+import DealPage from './components/DealPage';
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-100">
-      <PromoBar />
-      <Header />
-      
-      <div className="pb-20">
-        <DealImageCarousel />
+    <main className="min-h-screen bg-gray-50 flex justify-center items-start">
+      <div className="flex">
+        {/* Position 1 */}
+        <DealPage />
         
-        <DealInfo
-          title={mockDeal.title}
-          subtitle={mockDeal.subtitle}
-          location={mockDeal.location}
-          rating={mockDeal.rating}
-          reviewCount={mockDeal.reviewCount}
-          promoEndTime={mockDeal.promoEndTime}
-          promoCode={mockDeal.promoCode}
-          promoDiscount={mockDeal.promoDiscount}
-        />
+        {/* Separator */}
+        <div className="w-px bg-gray-300 shadow-sm" />
         
-        <PricingOptions options={mockDeal.options} />
+        {/* Position 2 */}
+        <DealPage />
         
-        <DealDetails
-          amenities={mockDeal.amenities}
-          description={mockDeal.description}
-          highlights={mockDeal.highlights}
-          generalInfo={mockDeal.generalInfo}
-          scheduling={mockDeal.scheduling}
-          afterPurchaseInfo={mockDeal.afterPurchaseInfo}
-        />
+        {/* Separator */}
+        <div className="w-px bg-gray-300 shadow-sm" />
         
-        <LocationMap redemptionLocation={mockDeal.redemptionLocation} />
+        {/* Position 3 */}
+        <DealPage />
         
-        <CustomerPhotos photos={mockDeal.customerPhotos} />
+        {/* Separator */}
+        <div className="w-px bg-gray-300 shadow-sm" />
         
-        <Reviews
-          reviews={mockDeal.reviews}
-          rating={mockDeal.rating}
-          reviewCount={mockDeal.reviewCount}
-        />
-        
-        <Footer />
+        {/* Position 4 */}
+        <DealPage />
       </div>
-      
-      <StickyBottomBar />
     </main>
   );
 }
