@@ -1,21 +1,28 @@
 import type { Config } from 'tailwindcss'
 
-const config: Config = {
+export default {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       colors: {
-        'groupon-green': '#53a318',
-        'groupon-green-dark': '#428913',
-        'groupon-purple': '#6c42e5',
+        'groupon-green': '#53A318',
+        'btn-green': '#2E7D32',
+        'groupon-purple': '#702082',
+        'promo-bg': '#F3E5F5',
+        'star-yellow': '#F5A623',
+        'text-main': '#2D2D2D',
+        'text-sub': '#757575',
+        'text-muted': '#BDBDBD',
+        'border-line': '#E0E0E0',
+        'border-input': '#CCCCCC',
+      },
+      fontFamily: {
+        sans: ['"Nunito Sans"', 'sans-serif'],
       },
     },
   },
   plugins: [],
-}
-export default config
-
+} satisfies Config

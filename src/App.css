@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  background-color: #F6F7F9;
+  margin: 0;
+  padding: 0;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.slot-grid {
+  flex: 1;
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Scrollbar styling */
+.slot-scrollable::-webkit-scrollbar {
+  width: 6px;
+}
+
+.slot-scrollable::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.slot-scrollable::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+.slot-scrollable::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Smooth scrolling */
+.slot-scrollable {
+  scroll-behavior: smooth;
+}
