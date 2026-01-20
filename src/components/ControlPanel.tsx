@@ -15,7 +15,7 @@ export const ControlPanel: React.FC = () => {
             onChange={(e) => actions.setViewMode(e.target.value as 'gallery' | 'prototype')}
             className="border border-[#CCCCCC] rounded px-3 py-2 text-sm"
           >
-            <option value="gallery">Gallery (4 Different Deals)</option>
+            <option value="gallery">AS-IS Deal Page</option>
             <option value="prototype">Prototype (1 Deal, 4 Variants)</option>
           </select>
         </div>
@@ -45,7 +45,7 @@ export const ControlPanel: React.FC = () => {
           </div>
         )}
         
-        {/* Prototype Mode: 1 Deal + Feature Flag Toggles */}
+        {/* Prototype Mode: 1 Deal Selector (no features yet) */}
         {state.viewMode === 'prototype' && (
           <div className="space-y-4">
             {/* Deal Selector */}
@@ -65,78 +65,9 @@ export const ControlPanel: React.FC = () => {
               </select>
             </div>
             
-            {/* Feature Flags Grid */}
-            <div className="grid grid-cols-4 gap-4">
-              {(['slot1', 'slot2', 'slot3', 'slot4'] as SlotId[]).map(slot => {
-                const slotNum = slot.slice(-1);
-                const flags = state.slotFeatureFlags[slot];
-                
-                return (
-                  <div key={slot} className="border border-[#E0E0E0] rounded-lg p-3">
-                    <div className="font-bold text-sm text-[#2D2D2D] mb-2">
-                      Slot {slotNum} {slot === 'slot1' && '(Control)'}
-                    </div>
-                    
-                    {slot !== 'slot1' && (
-                      <div className="space-y-2">
-                        <label className="flex items-center gap-2 text-xs">
-                          <input 
-                            type="checkbox" 
-                            checked={flags.showReviews || false}
-                            onChange={(e) => actions.setSlotFeatureFlags(slot, {
-                              ...flags,
-                              showReviews: e.target.checked,
-                            })}
-                          />
-                          Show Reviews
-                        </label>
-                        
-                        <label className="flex items-center gap-2 text-xs">
-                          <input 
-                            type="checkbox" 
-                            checked={flags.stickyFooterV2 || false}
-                            onChange={(e) => actions.setSlotFeatureFlags(slot, {
-                              ...flags,
-                              stickyFooterV2: e.target.checked,
-                            })}
-                          />
-                          Footer V2
-                        </label>
-                        
-                        <label className="flex items-center gap-2 text-xs">
-                          <input 
-                            type="checkbox" 
-                            checked={flags.enlargedImages || false}
-                            onChange={(e) => actions.setSlotFeatureFlags(slot, {
-                              ...flags,
-                              enlargedImages: e.target.checked,
-                            })}
-                          />
-                          Enlarged Images
-                        </label>
-                        
-                        <label className="flex items-center gap-2 text-xs">
-                          <input 
-                            type="checkbox" 
-                            checked={flags.stickyAfterOptions || false}
-                            onChange={(e) => actions.setSlotFeatureFlags(slot, {
-                              ...flags,
-                              stickyAfterOptions: e.target.checked,
-                            })}
-                          />
-                          Sticky After Options
-                        </label>
-                      </div>
-                    )}
-                    
-                    {slot === 'slot1' && (
-                      <div className="text-xs text-[#757575] italic">
-                        No feature flags (AS-IS)
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
+            {/* Placeholder for future features */}
+            <div className="text-sm text-gray-500 italic">
+              Feature controls will be added here...
             </div>
           </div>
         )}

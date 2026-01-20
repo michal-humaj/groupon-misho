@@ -2,13 +2,6 @@ import { createContext, useContext, useState, ReactNode } from 'react';
 import { CleanDeal } from '../types/deal';
 import { deals } from '../data/deals';
 
-export interface FeatureFlags {
-  showReviews?: boolean;           // Show/hide customer reviews section
-  stickyFooterV2?: boolean;        // Alternative sticky footer layout
-  enlargedImages?: boolean;        // Use larger hero images (120% scale)
-  stickyAfterOptions?: boolean;    // Show sticky footer only after scrolling past options
-}
-
 export type SlotId = 'slot1' | 'slot2' | 'slot3' | 'slot4';
 
 interface PrototypeState {
@@ -23,9 +16,6 @@ interface PrototypeState {
   // Prototype Mode: All slots show the same deal
   activeDealId: string | null;
   
-  // Feature flags applied to each slot
-  slotFeatureFlags: Record<SlotId, FeatureFlags>;
-  
   // Currently selected option per slot (for price updates)
   slotSelectedOptions: Record<SlotId, string | null>;
 }
@@ -34,7 +24,6 @@ interface PrototypeActions {
   setViewMode: (mode: 'gallery' | 'prototype') => void;
   setGallerySlot: (slot: SlotId, dealId: string | null) => void;
   setActiveDeal: (dealId: string | null) => void;
-  setSlotFeatureFlags: (slot: SlotId, flags: FeatureFlags) => void;
   selectOption: (slot: SlotId, optionId: string) => void;
 }
 
@@ -56,12 +45,6 @@ export const PrototypeProvider = ({ children }: { children: ReactNode }) => {
       slot4: deals[3]?.id || null,
     },
     activeDealId: deals[0]?.id || null,
-    slotFeatureFlags: {
-      slot1: {},  // Control has no flags
-      slot2: { showReviews: true },
-      slot3: { stickyFooterV2: true },
-      slot4: { stickyAfterOptions: true },
-    },
     slotSelectedOptions: {
       slot1: null,
       slot2: null,
@@ -87,16 +70,6 @@ export const PrototypeProvider = ({ children }: { children: ReactNode }) => {
     
     setActiveDeal: (dealId) => {
       setState(prev => ({ ...prev, activeDealId: dealId }));
-    },
-    
-    setSlotFeatureFlags: (slot, flags) => {
-      setState(prev => ({
-        ...prev,
-        slotFeatureFlags: {
-          ...prev.slotFeatureFlags,
-          [slot]: flags,
-        },
-      }));
     },
     
     selectOption: (slot, optionId) => {

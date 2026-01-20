@@ -16,7 +16,6 @@ export const Slot: React.FC<SlotProps> = ({ id }) => {
     : state.activeDealId;
   
   const deal = state.deals.find(d => d.id === dealId);
-  const flags = state.slotFeatureFlags[id];
   const selectedOptionId = state.slotSelectedOptions[id] || deal?.defaultOptionId || null;
   
   // Empty slot
@@ -58,7 +57,6 @@ export const Slot: React.FC<SlotProps> = ({ id }) => {
         <DealCard 
           deal={deal} 
           selectedOptionId={selectedOptionId}
-          featureFlags={flags}
           slotId={id}
         />
       </div>

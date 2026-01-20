@@ -7,12 +7,14 @@ export interface CleanDeal {
     websiteUrl?: string;
   };
   
-  // Images
+  // Images & Media
   images: {
     hero: string;           // largeImageUrl
     thumbnail: string;      // mediumImageUrl
     carousel: string[];     // Array of available images
   };
+  hasVideo?: boolean;       // Whether deal has video content
+  isVertical?: boolean;     // Vertical aspect ratio for media
   
   // Options (user selectable)
   options: CleanOption[];
@@ -33,6 +35,10 @@ export interface CleanDeal {
   // Deal metadata
   dealUrl: string;
   category: string;         // Derived from tags
+  breadcrumbs: string[];    // Navigation hierarchy ["Local", "Beauty & Spas", "Massage"]
+  priceType?: 'urgency' | 'standard';  // For red vs green price display
+  isUrgent?: boolean;       // Whether deal has urgency pricing
+  urgencyText?: string;     // Countdown text like "Ends in: 16:59:09"
 }
 
 export interface CleanOption {

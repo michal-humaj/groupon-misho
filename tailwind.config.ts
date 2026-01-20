@@ -8,8 +8,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'groupon-green': '#53A318',
-        'btn-green': '#2E7D32',
+        'groupon-green': '#177C1F',
         'groupon-purple': '#702082',
         'promo-bg': '#F3E5F5',
         'star-yellow': '#F5A623',
